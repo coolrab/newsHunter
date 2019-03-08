@@ -19,16 +19,16 @@
        
       <form action="post">
         <label class="label" for="author">Author</label>
-        <input class="inputs" type="text" name="author" value="Bjarte">
+        <input class="inputs" type="text" name="author" value="Bjarte" v-model="author">
         <label class="label" for="title">Title</label>
-        <input class="inputs" type="text" name="title" value=" Ballon d'Or twerking scandal">
+        <input class="inputs" type="text" name="title" value=" Ballon d'Or twerking scandal" v-model="title">
         <label class="label" for="description">Description</label>
-        <textarea name="description" class="inputs">
+        <textarea name="description" class="inputs" v-model="description">
             Scandal ensued at the Ballon d'Or when Ada Hegerberg was asked by broadcast
             host Martin Solveig to twerk on stage.
         </textarea>
         <label class="label" for="newscodes">Newscodes</label>
-        <textarea name="newscodes" class="inputs">
+        <textarea name="newscodes" class="inputs" v-model="newscodes">
           Sports, soccer
         </textarea>
         <label class="label" for="keywords">Keywords</label>
@@ -39,7 +39,7 @@
         <!-- <div>
           <p>{{keywords}}</p>
         </div> -->
-          <div :key="i" v-for="(item, i) of items">
+          <div :key="i" v-for="(item, i) in items">
             <p>{{item}}</p>
           </div>
         
@@ -81,16 +81,33 @@ export default {
   data(){
       return{
           showForm:false,
-
+        formId: 0,
+        author:"",
+        title:"",
+        description:"",
+        newscodes:"",
         keywords: "" ,
         items: [],
+        
       }
   },
 
   methods: {
     addKeywords: function(){
-      this.items.push(this.keywords)
-      this.keywords = ""
+      this.items.push({
+        id: this.formId++,
+        author: this.author,
+        title: this.title,
+        description: this.description,
+        newscodes: this.newscodes,
+        keywords: this.keywords
+        
+        })
+      this.author= "";
+      this.title= "";
+      this.description= "";
+      this.newscodes= "";
+      this.keywords = "";
     }
   }
 }

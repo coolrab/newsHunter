@@ -23,15 +23,20 @@
        -->
 
 
-      <div  class="items" :key="index" v-for = "(value, index) in values">
+      <!-- <div  class="items" :key="index" v-for = "(value, index) in values"> -->
+         <div  class="items" :key="index" v-for = "(value, index) in values">
           <!-- <ul :key="index" v-for = "({map:data}, index) in value">{{data}}</ul>  -->
           
-          <ul><a :href="value.keyiri"></a>{{value.key}}</ul>
+          <!-- <ul><a :href="value.keyiri"></a>{{value.facts}}</ul> -->
+          
+          <ul>{{value.facts}}</ul>
+          <ul>{{value.facts.map}}</ul>
+          <li>{{value.facts.map.key}}</li>
           
          <!-- <ul :key="index" v-for = "({data:key}, index) in data"><a :href="key.keyiri">{{key}}</a></ul>  -->
          <!-- <p><a :href="value.named_entityiri">{{value.facts[0].map}}</a></p> -->
          <!-- <ul :key="index" v-for = "({map:data}, index) in value">{{data}}</ul> -->
-          <li class="list-element"><a  :href="value.valuetype||value.valueiri">{{value.value}}</a> </li>
+          <!-- <li class="list-element"><a  :href="value.valuetype||value.valueiri">{{value.facts[0].map.key}}</a> </li> -->
           <button id="delete-btn">X</button>
          
           
@@ -112,9 +117,6 @@
    background: #1ab394;
  }
  
-
-
- 	
   a:link {
   color:#1ab394;
 }

@@ -21,10 +21,14 @@ export default {
 	
 data(){
 	return{
-		todos: 
-			
-	
-		 [{
+		todos: [{
+	"named_entityiri": "http://www.wikidata.org/entity/Q59411480",
+	"label": "Ballon d'Or F\u00e9minin",
+	"type": "Event",
+	"facts": [{
+		"source": "https://www.wikidata.org/wiki/Q129118",
+		"sourcelabel": "Wikidata",
+		"map": [{
 			"key": "Date",
 			"keyiri": "http://www.w3.org/2001/XMLSchema#date",
 			"value": "2018-12-03",
@@ -48,8 +52,26 @@ data(){
 			"value": "France Football",
 			"valueiri": "https://www.wikidata.org/wiki/Q244750"
 		}]
-	
-	
+	}],
+	"graph": {
+		"title": "Knowledge graph for Ballon d'Or F\u00e9minin",
+		"explanation": "This graph [will be] extracted by News Angler from reference and other data sources.",
+		"nodes": [{
+			"label": "Ballon d'Or F\u00e9minin",
+			"nodeiri": "http://www.wikidata.org/entity/Q59411480"
+		}, {
+			"label": "France Football Federation",
+			"nodeiri": "https://www.wikidata.org/wiki/Q244750"
+		}],
+		"edges": [{
+			"from": "Ballon d'Or F\u00e9minin",
+			"to": "France Football Federation",
+			"edgelabel": "presented_by",
+			"edgeiri": "https://www.wikidata.org/wiki/Property:P1027"
+		}]
+	},
+	"status": 0
+}]
 	
 	
 

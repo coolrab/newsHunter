@@ -41,6 +41,10 @@
         </div> -->
           <div :key="i" v-for="(item, i) in items">
             <p>{{item}}</p>
+
+
+              <div>{{todos_data}}</div>
+
           </div>
         
           <button @click.stop.prevent="addKeywords" id="submit" class="btn">Submit</button>

@@ -1,7 +1,8 @@
- <template>
-  <div class="concept-pannel">
-    <div class="element">
-      <span>People:</span>
+ <template >
+  <div class="concept-pannel"  >
+    <div class="element" :key="index" v-for="(val, index) in values.facts">
+      <!-- <span>People:</span> -->
+      <!-- {{val}} -->
       <ul>
         <!-- <li><a :href="todo.named_entityiri">{{todo.label}}</a></li> -->
       </ul>
@@ -16,13 +17,32 @@
         </ul>
     -->
     <!-- <div  class="items" :key="index" v-for = "(value, index) in values"> -->
-    <div class="items" :key="index" v-for="(val, index) in values">
+    <div class="items"  :key="index" v-for="(val, index) in values.facts">
       <!-- "value" is a special term in Vue (I only learned that yesterday), so use e.g. 'val' instead -->
       <!-- <ul :key="index" v-for = "({map:data}, index) in value">{{data}}</ul>  -->
       <!-- <ul><a :href="value.keyiri"></a>{{value.facts}}</ul> -->
       <!-- val is an object, but 'facts' and 'map' are arrays, so you need to access their contents with indices. -->
-      <span>{{val.facts[0].map[0].key}}</span>
+      <!-- <span>{{val.map[0].value}}</span> -->
+      <!-- {{val.map[1].key}} : {{val.map[1].value}} -->
 
+      <ul :key="index" v-for="(element, index) in val.map">
+        <a :href="element.keyiri">{{element.key}} :</a>
+        
+        
+
+      <li >
+        <a :href="element.valuetype||element.valueiri">{{element.value}}</a>
+        
+      </li> 
+      </ul>
+      <!-- <li v-for="item in element.key">
+        {{item}}
+      </li> -->
+      
+      
+      
+
+        
       <!-- <ul>{{val.facts[0].map.toString()}}</ul>
       <li>{{val[0].facts.map[0].key}}</li>-->
       <!-- <ul :key="index" v-for = "({data:key}, index) in data"><a :href="key.keyiri">{{key}}</a></ul>  -->
